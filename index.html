@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<title>Micky app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="#">
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="fonts/stylesheet.css" />
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/forecast.js"></script>	
+</head>
+
+<body>
+	<div id='home' data-theme='a' data-role='page' data-title='View Source: Portail'>
+		<div data-role='header' data-position='fixed'>
+			<h1>Micky App Portail</h1>			
+			<a href='#info' class='ui-btn-right' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>
+		</div><!-- header -->
+		<div data-role='content'>
+			<!--<img src="images/logo.png" alt="logo view sourde" />-->
+			<h1>Micky APP</h1>
+			<h2>SMART & SIMPLE</h2>				
+		</div><!-- content -->
+		<div data-role='controlgroup'>			
+			<a href='#news' data-role='button'>News</a>
+			<a href='#entertaiment' data-role='button'>Entertainment</a>
+			<a href='#technology' data-role='button'>Technology</a>
+			<a href='#travel' data-role='button'>Travel</a>
+			<a href='#gallery' data-role='button'>Gallery</a>
+			<a href='#blog' data-role='button'>Blog</a>	
+			<a href='#wheather' data-role='button'>Wheather</a>				
+		</div>		
+	</div><!-- page home -->
+	
+	<div id='wheather' data-role='page' data-title='View Source: Wheather'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Wheather</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>			
+		</div><!-- header -->
+		<div data-role='content' id='weatherlist'>
+		
+			<h1 id="current_temp" class="icon" data-icon="B"></h1>
+			<p id="current_summary"></p>
+			<p id="location"></p>
+		
+		</div>
+		<div data-role='controlgroup'>
+			<ul data-theme="d" data-role="listview">
+				<li data-role="list-divider">Select a City</li>
+				<li><a href='#' class="city" data-rel='close'>Current Location</a></li>
+				<li><a href='#' class="city" data-rel='close'>Toronto</a></li>
+				<li><a href='#' class="city" data-rel='close'>Vancouver</a></li>
+				<li><a href='#' class="city" data-rel='close'>Halifax</a></li>
+				<li><a href='#' class="city" data-rel='close'>Quebec</a></li>
+				<li><a href='#' class="city" data-rel='close'>Ottawa</a></li>
+			</ul>			
+		</div>
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#entertaiment' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Entertainment</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->		
+	</div><!--page wheather -->
+	
+	<div id='blog' data-role='page' data-title='View Source: Blog'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Blog</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>			
+		</div><!-- header -->
+		<div data-role='content' id='postlist'></div>
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#entertaiment' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Entertainment</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!--page blog -->
+	
+	<div id='videos' data-role='page' data-title='View Source: Videos'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Videos</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>			
+		</div><!-- header -->
+		<div data-role='content'>			
+			<div id='videolist' class='ui-grid-a'>
+				<div class="ui-block-a">
+					<a href="https://www.youtube.com/watch?v=17GvCgXAbyA&list=PLpyMIOJ_U4sxgKMNMIyPqMjISaTaL4hU2&index=13">
+						<div class='movietitle'>This is my video</div>
+						<img src='images/book.png'/>
+					</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="https://www.youtube.com/watch?v=17GvCgXAbyA&list=PLpyMIOJ_U4sxgKMNMIyPqMjISaTaL4hU2&index=13">
+						<div class='movietitle'>This is my video</div>
+						<img src='images/book.png'/>
+					</a>
+				</div>
+				<div class="ui-block-a">
+					<a href="https://www.youtube.com/watch?v=17GvCgXAbyA&list=PLpyMIOJ_U4sxgKMNMIyPqMjISaTaL4hU2&index=13">
+						<div class='movietitle'>This is my video</div>
+						<img src='images/book.png'/>
+					</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="https://www.youtube.com/watch?v=17GvCgXAbyA&list=PLpyMIOJ_U4sxgKMNMIyPqMjISaTaL4hU2&index=13">
+						<div class='movietitle'>This is my video</div>
+						<img src='images/book.png'/>
+					</a>
+				</div>				
+			</div>
+		</div><!-- content -->		
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#blog' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Blog</a></li>
+					<li><a href='#' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Videos</a></li>
+					<li><a href='#photos' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Photos</a></li>
+					<li><a href='#tweets' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Tweets</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->	
+	</div><!--page videos -->
+	
+	<div id='photos' data-role='page' data-title='View Source: Photos'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Photos</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>			
+		</div><!-- header -->
+		<div data-role='content' data-theme="a">
+			<div class="ui-grid" id="photolist"></div>
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#blog' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Blog</a></li>
+					<li><a href='#videos' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Videos</a></li>
+					<li><a href='#' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Photos</a></li>
+					<li><a href='#tweets' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Tweets</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!--page photos-->
+	
+	
+	<div id='gallery' data-role='page' data-title='View Source: Gallery'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Gallery Pictures</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>			
+		</div><!-- header -->
+		<div data-role='content' data-theme="a">
+			<div class="ui-grid" id="gallerylist"></div>
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#entertaiment' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Entertainment</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!--page gallery-->
+	
+	<div data-role='page' id='showGallery'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#gallery' data-transition="fade" data-icon='back' data-iconpos='notext' data-direction='reverse'>Gallery</a>
+			<h1 id="title-photo"></h1>			
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mygallery'></div>
+		</div><!-- content -->
+	</div><!-- page showphoto -->
+	
+	
+	
+	<div id='tweets' data-role='page' data-title='View Source: Tweets'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Tweets</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>
+			<a href='#info' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>			
+		</div><!-- header -->
+		<div data-role='content' id="tweetlist">
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#blog' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Blog</a></li>
+					<li><a href='#videos' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Videos</a></li>
+					<li><a href='#photos' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Photos</a></li>
+					<li><a href='#' data-transition='flip' data-role='button' data-inline='true' data-icon="vs-twitter" data-iconpos='right'>Tweets</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!-- page tweets -->
+	
+	<div id='news' data-role='page' data-title='View Source: News'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>News</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>
+			<a href='#info' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>			
+		</div><!-- header -->
+		<div data-role='content' id="newslist">
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#gallery' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Gallery</a></li>
+					<li><a href='#entertaiment' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Entertainment</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!-- page news -->
+	
+	
+	
+	
+	<div id='technology' data-role='page' data-title='View Source: Technology'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Technology</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>
+			<a href='#info' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>			
+		</div><!-- header -->
+		<div data-role='content' id="technologylist">
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#entertaiment' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Entertainment</a></li>
+					<li><a href='#gallery' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>gallery</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!-- page technology -->	
+	
+	<div data-role='page' id='technologypost'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#technology' data-icon='back' data-iconpos='notext' data-direction='reverse'>Technologye News</a>
+			<h1 id="title-technology"></h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mynewstechnology'></div>
+		</div><!-- content -->
+	</div><!-- page technologypost -->
+
+
+
+	
+	
+	<div id='entertaiment' data-role='page' data-title='View Source: Entertaiment'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Entertaiment</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>
+			<a href='#info' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>			
+		</div><!-- header -->
+		<div data-role='content' id="entertaimentlist">
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#blog' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Blog</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#travel' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!-- page technology -->	
+	
+	<div data-role='page' id='entertaimentpost'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#entertaiment' data-icon='back' data-iconpos='notext' data-direction='reverse'>Entertaiment News</a>
+			<h1 id="title-entertaiment"></h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mynewsentertaiment'></div>
+		</div><!-- content -->
+	</div><!-- page technologypost -->
+	
+	
+	<div id='travel' data-role='page' data-title='View Source: Travel'>
+		<div data-role='header' data-position='fixed' data-id='vs_header'>
+			<h1>Travel</h1>
+			<a href='#home' data-icon='home' data-iconpos='notext'>Home</a>
+			<a href='#info' data-icon='info' data-iconpos='notext' data-rel='dialog'>Info</a>			
+		</div><!-- header -->
+		<div data-role='content' id="travellist">
+		</div><!-- content -->
+		<div data-role='footer' data-position='fixed' data-id='vs_footer'>
+			<div data-role='navbar'>
+				<ul>
+					<li><a href='#home' data-transition='flip' data-role='button' data-inline='true' data-icon='home' data-iconpos='right'>Home</a></li>
+					<li><a href='#blog' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Blog</a></li>
+					<li><a href='#news' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>News</a></li>
+					<li><a href='#technology' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Technology</a></li>
+					<li><a href='#' data-transition='flip' data-role='button' data-inline='true' data-icon='arrow-r' data-iconpos='right'>Travel</a></li>
+				</ul>			
+			</div><!-- navbar -->				
+		</div><!--footer-->
+	</div><!-- page technology -->	
+	
+	<div data-role='page' id='travelpost'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#travel' data-icon='back' data-iconpos='notext' data-direction='reverse'>Travel News</a>
+			<h1 id="title-travel"></h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mynewstravel'></div>
+		</div><!-- content -->
+	</div><!-- page technologypost -->
+	
+	
+	
+	
+	
+		
+	<div data-role='page' id='info'>
+		<div data-role='header'>
+			<h1>About View Source</h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarass</p>
+			<p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarass</p>
+			<a href='#home' data-inline='true' data-role='button'>home</a>
+			<a href='#' data-role='button' data-inline='true' data-rel='back'>cancel</a>
+		</div><!-- content -->
+	</div><!-- page info -->
+	
+	<div data-role='page' id='newspost'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#news' data-icon='back' data-iconpos='notext' data-direction='reverse'>News</a>
+			<h1 id="title-news"></h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mynews'></div>
+		</div><!-- content -->
+	</div><!-- page newsinfo -->
+	
+	
+	
+	
+	<div data-role='page' id='blogpost'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#blog' data-icon='back' data-iconpos='notext' data-direction='reverse'>Post</a>
+			<h1>Post</h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='mypost'></div>
+		</div><!-- content -->
+	</div><!-- page bloginfo -->
+	
+	
+	<div data-role='page' id='videoplayer'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#videos' data-transition="fade" data-icon='back' data-iconpos='notext' data-direction='reverse'>Videos</a>
+			<h1>Videos</h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='myplayer'></div>
+		</div><!-- content -->
+	</div><!-- page videoplayer -->
+	
+	<div data-role='page' id='showphoto'>
+		<div data-role='header' data-position='fixed' data-theme='a'>
+			<a href='#photos' data-transition="fade" data-icon='back' data-iconpos='notext' data-direction='reverse'>Photos</a>
+			<h1>Photo</h1>
+		</div><!-- header -->
+		<div data-role='content'>
+			<div id='myphoto'></div>
+		</div><!-- content -->
+	</div><!-- page showphoto -->
+	
+	<!--List Gallery-->
+	<script src="http://johnnyflores.net/portail/?json=get_category_posts&slug=gallery&count=10&status=publish&callback=listGallery" type="text/javascript"></script>
+	
+	<script src="http://johnnyflores.net/portail/?json=get_category_posts&slug=news&count=10&status=publish&callback=listNews" type="text/javascript"></script>
+	
+	<script src="http://johnnyflores.net/portail/?json=get_category_posts&slug=technology&count=10&status=publish&callback=listTechnology" type="text/javascript"></script>
+	
+	<script src="http://johnnyflores.net/portail/?json=get_category_posts&slug=entertainment&count=10&status=publish&callback=listEntertaiment" type="text/javascript"></script>
+	
+	<script src="http://johnnyflores.net/portail/?json=get_category_posts&slug=travel&count=10&status=publish&callback=listTravel" type="text/javascript"></script>
+	
+	<script src="http://johnnyflores.net/business/?json=recentstories&callback=listPosts" type="text/javascript"></script>
+	
+	<script src="http://api.flickr.com/services/feeds/photos_public.gne?id=73845487@N00&format=json&tags=viewsource" type="text/javascript"></script>
+	
+	
+</body>
+</html>
